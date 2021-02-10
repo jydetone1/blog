@@ -1,0 +1,15 @@
+<h1>edit tag</h1>
+<div class="row">
+  <div class="col-sm-4">
+    <form action="/admin/tags/edit/{{tag._id}}?_method=PUT" method="post">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input value="{{tag.name}}" type="text" name="name" placeholder="Enter title" class="form-control">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Update Tag</button>
+    </form>
+  </div>
+
+
+</div>

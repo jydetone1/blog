@@ -1,0 +1,95 @@
+<h1>Create Post</h1>
+
+{{#if error}}
+<div class="alert alert-danger">{{error}}
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+</div>
+{{/if}}
+
+
+
+{{#each errors}}
+<div class="alert alert-danger mb-1">{{message}}
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+</div>
+{{else}}
+
+{{/each}}
+
+
+
+{{#if error_message}}
+
+<div class="alert alert-danger">{{error_message}}
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+</div>
+
+
+{{/if}}
+
+
+
+{{#if success_message}}
+<div class="alert alert-success">{{success_message}}
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+</div>
+{{/if}}
+
+<form action="/admin/posts/create" method="post" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input name="title" type="text" class="form-control" id="title" placeholder="Enter title">
+  </div>
+
+  <div class="form-group">
+    <label for="status">Tags</label>
+    <select name="tags" id="status" class="form-control selectpicker" multiple>
+      {{#each tags}}
+      <option value="{{slug}}" {{{multiselect "{{slug}}"}}}>{{name}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="excerpt">excerpt</label>
+    <textarea name="excerpt" cols="30" rows="5" class="form-control" id="excerpt"
+      placeholder="Enter excerpt"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="file">File Upload</label>
+    <input type="file" name="file" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="status">Category</label>
+    <select name="category" id="status" class="form-control">
+      {{#each categories}}
+      <option value="{{slug}}">{{name}}</option>
+      {{/each}}
+    </select>
+  </div>
+
+
+  <div class="form-group">
+    <label for="status">Status</label>
+    <select name="status" id="status" class="form-control">
+      <option value="public">Public</option>
+      <option value="private">Private</option>
+      <option value="draft">Draft</option>
+    </select>
+  </div>
+
+  <div class="form-check">
+    <label for="allowComments" class="form-check-label">
+      <input name="allowComments" type="checkbox" class="form-check-input" id="allowComments">
+      Allow Comments
+    </label>
+  </div>
+
+  <div class="form-group">
+    <label for="body">Body</label>
+    <textarea name="body" cols="30" rows="10" class="form-control" id="body" placeholder="Enter Description"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary mb-2">Create Post</button>
+</form>

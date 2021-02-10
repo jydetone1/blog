@@ -1,0 +1,84 @@
+{{!-- {{#if error}}
+<div class="alert alert-danger mt-2">{{error}}
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+</div>
+{{/if}}
+
+
+{{#each errors}}
+<div class="alert alert-danger mb-5">{{message}}
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+</div>
+{{else}}
+
+{{/each}}
+
+
+
+{{#if error_message}}
+
+<div class="alert alert-danger">{{error_message}}
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+</div>
+
+{{/if}}
+
+
+
+
+{{#if success_message}}
+<<div class="alert alert-sucesss">{{success_message}}
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  </div>
+  {{/if}}
+  <div class="row postall">
+    <div class="col-md-6 mx-auto py-5">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="text-center">Register</h1>
+          <form action="/user/register" method="post">
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <label for="exampleInputName">First name</label>
+                  <input value="{{firstName}}" name="firstName" class="form-control" id="exampleInputName" type="text"
+                    aria-describedby="nameHelp" placeholder="Enter first name">
+                </div>
+                <div class="col-md-6">
+                  <label for="exampleInputLastName">Last name</label>
+                  <input value="{{lastName}}" name="lastName" class="form-control" id="exampleInputLastName" type="text"
+                    aria-describedby="nameHelp" placeholder="Enter last name">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input value="{{email}}" name="email" class="form-control" id="exampleInputEmail1" type="email"
+                aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input name="password" class="form-control" id="exampleInputPassword1" type="password"
+                    placeholder="Password" autocomplete="on">
+
+                </div>
+                <div class="col-md-6">
+                  <label for="exampleConfirmPassword">Confirm password</label>
+                  <input name="passwordConfirm" class="form-control" id="exampleConfirmPassword" type="password"
+                    placeholder="Confirm password" autocomplete="on">
+
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-success d-block mx-auto">Register</button>
+          </form>
+          <div class="text-center">
+            <a class="d-block small mt-3" href="/login">Login Page</a>
+            <a class="d-block small" href="/">Home Page?</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> --}}

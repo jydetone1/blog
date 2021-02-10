@@ -1,0 +1,134 @@
+{{#if success_message}}
+<div class="alert alert-success">
+  {{success_message}}
+</div>
+{{/if}}
+
+<div class="container">
+  <div class="row py-5 postall">
+    <div class="col-lg-8 post-img">
+      <h1 class="mb-4 postone">{{post.title}}</h1>
+      <div class="card-cartegories d-flex justify-content-start align-items-center list-unstyled">
+        <p> <i class="fa fa-fw fa-user"></i> {{post.user.firstName}}</p>
+        <p><i class="fa fa-fw fa-clock-o"></i>{{formatDate post.date "YYYYMMDD"}}</p>
+        <p><i class="fa fa-fw fa-folder"></i><a href="/category/{{post.category}}">{{post.category}}</a></p>
+        <p><i class="fa fa-fw fa-tags"></i>
+          {{#each post.tags}}
+          <a href="/tag/{{this}}">{{this}}.</a>
+          {{/each}}
+        </p>
+
+      </div>
+      <p class="contentbody">{{{post.body}}}</p>
+      <div class="text-center py-3">
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+        <div class="addthis_inline_share_toolbox_ohdu"></div>
+      </div>
+
+
+      {{!--
+      <hr> --}}
+      {{#if user}}
+      {{#if post.allowComments}}
+      <!-- Comments Form -->
+      <div class=" card my-4">
+        <h5 class="card-header">Leave a Comment:</h5>
+        <div class="card-body">
+          <form action="/admin/comments" method="post">
+            <div class="form-group">
+              <textarea name="body" class="form-control" rows="3" required></textarea>
+              <input type="hidden" value="{{post._id}}" name="id">
+            </div>
+            <button type="submit" class="btn btn-success">Post Comments</button>
+          </form>
+        </div>
+      </div>
+      {{else}}
+      <h2></h2>
+      {{!-- <br>
+      <hr> --}}
+
+      {{/if}}
+
+      {{else}}
+
+      You need to login to comment <a href="/user/login">Login</a>
+      <br>
+
+      {{/if}}
+
+      {{#each post.comments}}
+      <!-- Single Comment -->
+      <hr>
+      <div class="media mb-4 comment-img">
+        <img src="/images/image-chip.png" alt="" class="img-fluid d-flex mr-3 responsive-img rounded-circle">
+        <div class="media-body">
+          <div class="d-flex">
+            <h5 class="mt-0">{{user.firstName}}</h5>
+            <p class="ml-2 datetime "></i>{{formatDate date "YYYYMMDD"}}</p>
+          </div>
+          {{body}}
+        </div>
+      </div>
+      {{/each}}
+
+    </div>
+    <div class="col-lg-4 post-recent ">
+      <form action="/" method="get" id="searchform">
+        <div class="input-group">
+          <input type="text" name="search" class="form-control" placeholder="Search...">
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-secondary" type="button"><i class="fa fa-fw fa-search"></i></button>
+          </span>
+        </div>
+      </form>
+
+
+      <div class="card mt-5 recentpost">
+        <h5 class="card-header">
+          Recent Posts
+        </h5>
+        <div class="card-body bodyexcerpt">
+          <ul class="list-unstyled recent-list">
+            <li class="d-flex justify-content-start mb-4 recentimg">
+              <img src=" /uploads/{{post.file}}" alt="" class="img-fluid">
+              <a href="/">{{post.title}}</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+
+      <div class="card mt-5 categorypost">
+        <h5 class="card-header">
+          Categories
+        </h5>
+        <div class="card-body">
+          <ul class="d-flex flex-wrap list-unstyled justify-content-start category-list">
+            {{#each categories}}
+            <li class="ml-2">
+              <a href="/category/{{slug}}">{{name}}</a>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+      <div class="card mt-5 categorypost">
+        <h5 class="card-header">
+          Tags
+        </h5>
+        <div class="card-body">
+          <ul class="d-flex flex-wrap list-unstyled justify-content-start category-list">
+            {{#each tags}}
+            <li class="ml-2">
+              <a href="/tag/{{slug}}">{{name}}</a>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

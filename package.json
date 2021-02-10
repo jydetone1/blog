@@ -1,0 +1,33 @@
+{
+  "name": "testapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "env-cmd -f ./config/dev.env nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.3",
+    "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.0",
+    "express-handlebars": "^5.1.0",
+    "express-session": "^1.17.1",
+    "handlebars": "^4.7.6",
+    "method-override": "^3.0.0",
+    "moment": "^2.29.1",
+    "mongoose": "^5.10.9",
+    "mongoose-url-slugs": "^1.0.2",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "validator": "^13.1.17"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "nodemon": "^2.0.4"
+  }
+}

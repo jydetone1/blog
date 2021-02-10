@@ -1,0 +1,110 @@
+<div class="container">
+  {{#each errors}}
+  <div class="alert alert-danger topmag">{{message}}</div>
+  {{else}}
+  {{/each}}
+
+  {{#if success_message}}
+  <div class="alert alert-success topmag">
+    {{success_message}}
+  </div>
+  {{/if}}
+  <div class="row py-5 postall">
+    <div class=" col-lg-8 post-img">
+      {{#each posts}}
+      <img src="/uploads/{{file}}" alt="" class="img-fluid">
+      <div class="card">
+        <div class="card-header">
+          <h1>{{title}}</h1>
+        </div>
+        <div class="card-body bodyexcerpt">
+          <a href="/post/{{slug}}">{{{excerpt}}}</a>
+        </div>
+        <div class="card-footer d-flex justify-content-between align-items-center list-unstyled main-flex ">
+          <p> <i class="fa fa-fw fa-user"></i> {{user.firstName}}</p>
+          <p> <i class="fa fa-fw fa-clock-o"></i>{{formatDate date "YYYYMMDD"}}</p>
+          <p><i class="fa fa-fw fa-folder"></i><a href="/category/{{category}}">{{category}}</a>
+          </p>
+          <p><i class="fa fa-fw fa-tags"></i>
+            {{#each tags}}
+            <a href="/tag/{{this}}">{{this}}.</a>
+            {{/each}}
+          </p>
+          <p>
+            <a href="/post/{{slug}}" class="read">continuing reading<i class="fa fa-fw fa-angle-double-right"></i></a>
+          </p>
+        </div>
+      </div>
+      <div class="space-bottom"></div>
+      {{/each}}
+      <ul class="pagination justify-content-center mt-4">
+        {{#if posts}}
+        {{#paginate current=current pages=pages}} {{/paginate}}
+        {{/if}}
+      </ul>
+    </div>
+
+
+
+    <div class="col-lg-4 post-recent">
+      <form action="/" method="get" id="searchform">
+        <div class="input-group">
+          <input type="text" name="search" class="form-control" placeholder="Search...">
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-secondary" type="button"><i class="fa fa-fw fa-search"></i></button>
+          </span>
+        </div>
+      </form>
+
+
+      <div class="card mt-5 recentpost">
+        <h5 class="card-header bodyexcerpt">
+          Recent Posts
+        </h5>
+        <div class="card-body bodyexcerpt">
+          <ul class="list-unstyled recent-list">
+            {{#each posts}}
+            <li class="d-flex justify-content-start mb-4 recentimg">
+              {{#if file }}
+              <img src="/uploads/{{file}}" alt="" class="img-fluid">
+              {{/if}}
+              <h3><a href="/post/{{slug}}">{{title}}</a></h3>
+            </li>
+            {{/each}}
+
+          </ul>
+        </div>
+      </div>
+
+      <div class="card mt-5 categorypost">
+        <h5 class="card-header">
+          Categories
+        </h5>
+        <div class="card-body">
+          <ul class="d-flex flex-wrap list-unstyled justify-content-start category-list">
+            {{#each categories}}
+            <li class="ml-2">
+              <a href="/category/{{slug}}">{{name}}</a>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+
+      <div class=" card mt-5 categorypost">
+        <h5 class="card-header">
+          Tags
+        </h5>
+        <div class="card-body">
+          <ul class="d-flex flex-wrap list-unstyled justify-content-start category-list">
+            {{#each tags}}
+            <li class=" ml-2">
+              <a href="/tag/{{slug}}">{{name}}</a>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
