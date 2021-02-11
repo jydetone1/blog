@@ -24,7 +24,7 @@ const user = require("./routes/home/user");
 // const db = require("./config/database");
 
 mongoose
-  .connect(process.env.mongoURI, {
+  .connect(process.env.MongoURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
