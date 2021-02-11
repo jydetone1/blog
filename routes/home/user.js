@@ -52,7 +52,7 @@ router.post("/login", (req, res, next) => {
 });
 
 router.get("/register", (req, res) => {
-  res.render("home/user/register");
+  res.render("home/user/register",{title:"Register"});
 });
 
 router.post("/register", (req, res) => {

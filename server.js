@@ -29,6 +29,7 @@ mongoose
     useUnifiedTopology: true,
     useCreateIndex: true,
     useFindAndModify: false,
+    useMongoClient:true 
   })
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.log(err));
@@ -93,6 +94,13 @@ app.use("/user", user);
 app.use("/admin/categories", category);
 app.use("/admin/tags", tag);
 app.use("/admin/comments", comment);
+
+app.get("*", (req, res) => {
+  res.render("home/404page", {
+    title: "404",
+    message: "Page not found",
+  });
+});
 
 const port = process.env.PORT 
 
