@@ -370,7 +370,7 @@ body.mobile-nav-active #mobile-nav-toggle {
     justify-content: space-between;
     align-items: center;
     flex: wrap;
-    font-size: 0.8rem;
+    font-size: 0.6rem;
     margin-right: 0.3rem;
   }
   .post-img {
