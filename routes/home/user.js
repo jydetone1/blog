@@ -97,7 +97,7 @@ router.post("/register", (req, res) => {
           lastName: req.body.lastName,
           email: req.body.email,
           password: req.body.password,
-          admin: 0,
+          admin: 1,
         });
 
         bcrypt.genSalt(10, (err, salt) => {
